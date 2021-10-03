@@ -13,11 +13,11 @@ Note: extracting a MIDI melody from a polyphonic audio file involves two main st
 
 # Usage
 ```bash
->python audio_to_midi_melodia.py infile outfile bpm [--smooth SMOOTH] [--minduration MINDURATION] [--jams]
+>python3 audio_to_midi_melodia.py infile outfile bpm [--smooth SMOOTH] [--minduration MINDURATION] [--jams]
 ```
 For example:
 ```bash
->python audio_to_midi_melodia.py ~/song.wav ~/song.mid 60 --smooth 0.25 --minduration 0.1 --jams
+>python3 audio_to_midi_melodia.py example.wav midiExample.mid 60 --smooth 0.25 --minduration 0.1 --jams
 ```
 Details:
 ```

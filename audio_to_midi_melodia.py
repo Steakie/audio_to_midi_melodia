@@ -104,7 +104,7 @@ def midi_to_notes(midi, fs, hop, smooth, minduration):
     # print(len(midi),len(midi_filt))
 
     notes = []
-    p_prev = None
+    p_prev = 0
     duration = 0
     onset = 0
     for n, p in enumerate(midi_filt):
@@ -118,7 +118,7 @@ def midi_to_notes(midi, fs, hop, smooth, minduration):
                 # only add notes that are long enough
                 if duration_sec >= minduration:
                     onset_sec = onset * hop / float(fs)
-                    notes.append((onset_sec, duration_sec, p_prev))
+                    notes.append((onset_sec, duration_sec, int(p_prev)))
 
             # start new note
             onset = n
@@ -130,7 +130,7 @@ def midi_to_notes(midi, fs, hop, smooth, minduration):
         # add note
         duration_sec = duration * hop / float(fs)
         onset_sec = onset * hop / float(fs)
-        notes.append((onset_sec, duration_sec, p_prev))
+        notes.append((onset_sec, duration_sec, int(p_prev)))
 
     return notes
 
